@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Cabin", serif;
+}
+
+main {
+    flex: 1; /* Pushes footer to the bottom by expanding the main content */
+}
+
+/* Header */
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 0 100px;
+}
+
+/* Navigation bar */
+.nav-left, .nav-right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ul1, .ul2 {
+    display: flex;
+    gap: 20px;
+}
+
+.ul1 li {
+    padding: 0 60px 10px;
+}
+
+.ul2 li {
+    padding: 0 60px 10px 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    font-family: "Cabin", serif;
+    color: #5c3327;
+    font-weight: 590;
+    font-size: 18px;
+}
+
+a:hover {
+    color:#DAA520; /* orange color on hover */
+}
+
+/*Formatting logo */
+.logo {
+    max-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Base dropdown styling */
+.drop-down {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    padding: 10px;
+    border-radius: 4px;
+    min-width: 180px;
+    max-width: 250px; /* Keeps dropdown width manageable */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* Display dropdown on hover */
+li:hover .drop-down {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+li {
+    position: relative;
+}
+
+.nav-left ul, .nav-right ul {
+    display: flex;
+    gap: 5px;
+}
+
+/* Video container to align the video to the right */
+.video-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the video to the right */
+    margin-top: 20px; /* Space below the header */
+}
+
+/* Background video */
+.background-video {
+    position: relative; /* Keeps it part of the document flow */
+    height: 550px; /* Controls the video height */
+    width: auto; 
+    top:50px;
+    right: 15rem;
+    object-fit: cover; /* Ensures video fits without distortion */
+    z-index: -1; /* Keeps it behind other content if needed */
+}
+
+.border-box{
+    position: absolute;
+    height: 500px;
+    width: 22%;
+    top: 24%;
+    left: 15%;
+    border: #DAA520 solid 1px;
+    z-index: -1;
+}
+
+.text{
+    position: absolute;
+    z-index: 1;
+    left: 18%;
+    top: 28%;
+}
+.text h3{
+    color: #DAA520;
+    font-size: 4.5rem;
+    font-weight: 100;
+    font-family: "Cormorant Infant", serif;
+    z-index: 2;
+}
+
+.text p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    padding-top: 7px;
+}
+
+/* SVG Button */
+.discover {
+    position: absolute;
+    bottom: -30px;
+    left: 0px;
+    font-size: 1rem;
+    padding: 25px 40px;
+    background-color: transparent;
+    color: #5c3327;
+    border: 3px solid #5c3327;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    box-shadow: none;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+/* Hover effect */
+.discover:hover {
+    color: #fff;
+    border-color: #d3b66c;
+}
+
+.discover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s, border-color 0.3s;
+}
+
+.discover:hover::before {
+    opacity: 0;
+}
+
+.discover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: #d3b66c;
+    border-color: transparent;
+    border-radius: 50%;
+    transform: translate(-10px, -70px) scale(0.1);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+
+.discover:hover::after {
+    opacity: 1;
+    transform-origin: 100px 100px;
+    transform: scale(1) translate(-10px, -70px);
+}
+
+.heading{
+    position: relative;
+    top: 150px;
+}
+.heading h4{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: #DAA520;
+    text-align: center;
+}
+
+.heading h3{
+    /* position: relative; */
+    font-family: "Cormorant Infant", serif;
+    font-weight: 500;
+    font-size: 3rem;
+    color: #5c3327;
+    text-align: center;
+}
+
+/* Styling product images */
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 200px; /* Creates space below the heading */
+    margin-top: 100px; /* Adjusts spacing to prevent overlap */
+}
+
+.products img {
+    height: 300px;
+    width: auto;
+    margin-bottom: 180px;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.products img:hover {
+    transform: scale(1.1); /* Zoom-in effect */
+}
+
+/* Footer */
+footer {
+    background-color: #2a1a15;
+    color: #f1efe7;
+    padding: 40px 0; /* Adjusted padding for less space */
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Keeps footer at the bottom */
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 10px; /* Reduces space between columns */
+    max-width: 100%; /* Full width of the footer */
+    padding: 0 20px; /* Adds minimal space from left and right */
+    margin: 0 auto; /* Centers content */
+}
+
+.footer-column {
+    text-align: center;
+}
+
+.footer-column h3 {
+    font-family: "Cormorant Infant", serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #eccd7d;
+    margin-bottom: 25px;
+}
+
+footer a {
+    font-family: "Cabin", serif;
+    font-weight: 100;
+    display: block;
+    text-decoration: none;
+    color: #f1efe7;
+    line-height: 2rem;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #DAA520; /* Change color on hover */
+    font-size: 20px;
+}
+
+/* Footer logo */
+.footer-image {
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 75px;
+}
+
+/* Making the website responsive */
+/* Responsive header layout */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        max-height: 80px;
+    }
+}
+
+/* Adjust text and button for smaller screens */
+@media (max-width: 768px) {
+    .text h3 {
+        font-size: 2.5rem;
+    }
+
+    .text p {
+        font-size: 16px;
+    }
+
+    .discover {
+        padding: 15px 30px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Adjust video and border-box positioning */
+@media (max-width: 768px) {
+    .video-container {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .background-video {
+        width: 100%;
+        height: auto;
+    }
+
+    .border-box {
+        height: 300px;
+        width: 70%;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Adjust products layout for smaller screens */
+@media (max-width: 768px) {
+    .products {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .products img {
+        height: 200px;
+    }
+}
+
+/* Responsive footer layout */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+/* General scaling for ultra-wide or narrow aspect ratios */
+@media (max-aspect-ratio: 3/2), (min-aspect-ratio: 16/9) {
+    .header-container {
+        padding: 0 50px;
+    }
+
+    .text h3 {
+        font-size: 3rem;
+    }
+
+    .products img {
+        height: 250px;
+    }
+
+    .footer-content {
+        gap: 15px;
+    }
+}
+
+/* Fine-tuning for very small devices */
+@media (max-width: 480px) {
+    .text h3 {
+        font-size: 2rem;
+    }
+
+    .text p {
+        font-size: 14px;
+    }
+
+    .discover {
+        font-size: 0.8rem;
+    }
+
+    .products img {
+        height: 150px;
+    }
+}
